@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/api/v1.0/predict')
+@app.route('/api/v1.0/predict', methods=['GET'])
 def predict():
     a = request.args.get('a', default=0)
     b = request.args.get('b', default=0)
@@ -31,4 +31,4 @@ def predict():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host = '0.0.0.0', port = 5000)
